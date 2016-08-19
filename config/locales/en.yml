@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  api:
+    login_success: "Login success!"
+    login_fail: "Invalid email or password!"
+    logout_success: "Logout success!"
+    logout_fail: "Logout fail!"

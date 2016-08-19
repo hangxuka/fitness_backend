@@ -1,6 +1,6 @@
-class AddDeviseToManagers < ActiveRecord::Migration[5.0]
-  def self.up
-    change_table :managers do |t|
+class DeviseCreateManagers < ActiveRecord::Migration[5.0]
+  def change
+    create_table :managers do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -18,6 +18,7 @@ class AddDeviseToManagers < ActiveRecord::Migration[5.0]
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+
       t.string :full_name
       t.string :user_name
       t.string :birthday
@@ -37,19 +38,12 @@ class AddDeviseToManagers < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
 
 
-      # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps null: false
+      t.timestamps null: false
     end
 
     add_index :managers, :email,                unique: true
     add_index :managers, :reset_password_token, unique: true
     # add_index :managers, :confirmation_token,   unique: true
     # add_index :managers, :unlock_token,         unique: true
-  end
-
-  def self.down
-    # By default, we don't want to make any assumption about how to roll back a migration when your
-    # model already existed. Please edit below which fields you would like to remove in this migration.
-    raise ActiveRecord::IrreversibleMigration
   end
 end
