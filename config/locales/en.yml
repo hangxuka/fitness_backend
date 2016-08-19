@@ -25,3 +25,5 @@ en:
     login_fail: "Invalid email or password!"
     logout_success: "Logout success!"
     logout_fail: "Logout fail!"
+    registry_success: "Registry success!"
+    registry_fail: "Registry fail!"
