@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :managers
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api, defaults: {format: :json} do
+    scope module: :v1 do
+      devise_for :managers, path: "auth", path_names: {sign_in: "login",
+        sign_out: "logout", password: "secret", confirmation: "verification",
+        registration: "register", sign_up: "cmon_let_me_in"}
+    end
+  end
 end
