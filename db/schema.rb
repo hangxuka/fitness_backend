@@ -54,25 +54,25 @@ ActiveRecord::Schema.define(version: 20160819113932) do
     t.index ["manager_id"], name: "index_meetings_on_manager_id", using: :btree
   end
 
-  create_table "transaction_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "transaction_id"
+  create_table "order_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "order_id"
     t.integer  "item_id"
     t.integer  "quantity"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["item_id"], name: "index_transaction_items_on_item_id", using: :btree
-    t.index ["transaction_id"], name: "index_transaction_items_on_transaction_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_order_items_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
   end
 
-  create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "manager_id"
     t.integer  "user_id"
     t.datetime "created_date"
     t.float    "total_price",  limit: 24
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.index ["manager_id"], name: "index_transactions_on_manager_id", using: :btree
-    t.index ["user_id"], name: "index_transactions_on_user_id", using: :btree
+    t.index ["manager_id"], name: "index_orders_on_manager_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "user_meetings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,10 +103,10 @@ ActiveRecord::Schema.define(version: 20160819113932) do
 
   add_foreign_key "items", "managers"
   add_foreign_key "meetings", "managers"
-  add_foreign_key "transaction_items", "items"
-  add_foreign_key "transaction_items", "transactions"
-  add_foreign_key "transactions", "managers"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "managers"
+  add_foreign_key "orders", "users"
   add_foreign_key "user_meetings", "meetings"
   add_foreign_key "user_meetings", "users"
   add_foreign_key "users", "managers"
