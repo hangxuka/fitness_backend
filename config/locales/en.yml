@@ -44,3 +44,11 @@ en:
       delete_success: "delete item success!"
       delete_fail: "delete item fail!"
       not_found: "Item not found!"
+    order:
+      delete_success: "delete order success!"
+      delete_fail: "delete order fail!"
+      create_success: "create order success!"
+      create_fail: "create order fail!"
+      update_success: "update order success!"
+      update_fail: "update order fail!"
+      not_found: "Order not found!"
