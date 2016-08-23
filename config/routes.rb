@@ -4,10 +4,11 @@ Rails.application.routes.draw do
       devise_for :managers, path: "auth", path_names: {sign_in: "login",
         sign_out: "logout", password: "secret", confirmation: "verification",
         registration: "register", sign_up: "cmon_let_me_in"}
-        resources :users
-        resources :items
-        resources :orders
-        resources :meetings
+      resources :users
+      resources :items
+      resources :orders
+      resources :meetings
+      resources :managers, only: :update
     end
   end
 end

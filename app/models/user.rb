@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   enum role: {trainer: 0, customer: 1}
 
-  validates :full_name, :birthday, :tel_number, :address, :role, presence: true
+  validates :full_name, :tel_number, :role, presence: true
   validates :meeting_money, presence: true, if: :trainer?
   validates :registry_date, :expiry_date, presence: true, if: :customer?
 end
