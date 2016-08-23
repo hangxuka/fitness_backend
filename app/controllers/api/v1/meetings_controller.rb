@@ -4,8 +4,14 @@ class Api::V1::MeetingsController < ApplicationController
   before_action :find_Meeting, only: [:update, :destroy, :show]
 
   def index
-    @meetings =  Meeting.all
-    render json: @meetings
+    if type = params[:date].present?
+      @meetings = current_user.meetings.filter_by_date(params[:date])
+        .order_by_from_date
+      render json: @meetings
+    else
+      @meetings = current_user.meetings.order_by_from_date
+      render json: @meetings
+    end
   end
 
   def show
@@ -15,7 +21,7 @@ class Api::V1::MeetingsController < ApplicationController
   def create
     @meeting = current_user.meetings.new meeting_params
     if @meeting.save
-      render json: @meeting, serializer: MeetingsSerializer,
+      render json: @meeting, serializer: MeetingSerializer,
         messages: t("api.meeting.create_success")
     else
       render json: {messages: t("api.meeting.create_fail")}
@@ -25,7 +31,7 @@ class Api::V1::MeetingsController < ApplicationController
   def update
     if @meeting.present?
       if @meeting.update_attributes meeting_params
-        render json: @meeting, serializer: MeetingsSerializer,
+        render json: @meeting, serializer: MeetingSerializer,
           messages: t("api.meeting.update_success")
       else
         render json: {messages: t("api.meeting.update_success")}
@@ -49,7 +55,8 @@ class Api::V1::MeetingsController < ApplicationController
 
   private
   def meeting_params
-    params.require(:meeting).permit :from_date, :to_date, :manager_id
+    params.require(:meeting).permit :from_date, :to_date, :manager_id,
+      user_meetings_attributes: [:id, :user_id, :_destroy]
   end
 
   def find_Meeting
