@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :user_id, :created_date, :total_price
+  attributes :id, :user_id, :created_date, :total_price
   attribute :messages, if: -> {@instance_options[:messages].present?}
 
   def messages

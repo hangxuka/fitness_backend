@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :orders
       resources :meetings
       resources :managers, only: :update
+      resources :filter_transactions, only: :index
     end
   end
 end
