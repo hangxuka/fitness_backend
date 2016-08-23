@@ -52,7 +52,7 @@ en:
       update_success: "update order success!"
       update_fail: "update order fail!"
       not_found: "Order not found!"
-    meetings:
+    meeting:
       delete_success: "delete meeting success!"
       delete_fail: "delete meeting fail!"
       create_success: "create meeting success!"
