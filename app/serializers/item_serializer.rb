@@ -1,5 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :name, :price
+  attributes :id, :name, :price
   attribute :messages, if: -> {@instance_options[:messages].present?}
 
   def messages
