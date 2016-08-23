@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       resources :filter_transactions, only: :index
     end
   end
+  root "application#api"
 end

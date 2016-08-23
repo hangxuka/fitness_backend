@@ -21,7 +21,7 @@ class Api::V1::MeetingsController < ApplicationController
   def create
     @meeting = current_user.meetings.new meeting_params
     if @meeting.save
-      render json: @meeting, serializer: MeetingsSerializer,
+      render json: @meeting, serializer: MeetingSerializer,
         messages: t("api.meeting.create_success")
     else
       render json: {messages: t("api.meeting.create_fail")}
@@ -31,7 +31,7 @@ class Api::V1::MeetingsController < ApplicationController
   def update
     if @meeting.present?
       if @meeting.update_attributes meeting_params
-        render json: @meeting, serializer: MeetingsSerializer,
+        render json: @meeting, serializer: MeetingSerializer,
           messages: t("api.meeting.update_success")
       else
         render json: {messages: t("api.meeting.update_success")}
