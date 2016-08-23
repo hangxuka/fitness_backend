@@ -8,7 +8,7 @@ class Manager < ApplicationRecord
   has_many :items
   has_many :orders
 
-  validates :user_name, :full_name, :tel_number, :address,  presence: true
+  validates :user_name, presence: true
 
   def generate_authentication_token!
     begin

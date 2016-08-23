@@ -60,3 +60,6 @@ en:
       update_success: "update meeting success!"
       update_fail: "update meeting fail!"
       not_found: "meeting not found!"
+    manager:
+      update_success: "update manager success!"
+      update_fail: "update manager fail!"
