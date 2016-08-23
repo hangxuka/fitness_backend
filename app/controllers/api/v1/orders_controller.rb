@@ -4,8 +4,14 @@ class Api::V1::OrdersController < ApplicationController
   before_action :find_order, only: [:update, :destroy, :show]
 
   def index
-    @orders =  Order.all
-    render json: @orders
+    if type = params[:filter_type].present?
+      order = current_user.orders.filter_by_date params[:filter_type],
+        params[:date]
+      render json: order
+    else
+      order = current_user.orders
+      render json: order
+    end
   end
 
   def show
@@ -49,8 +55,8 @@ class Api::V1::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit :user_id, :created_date,
-      :total_price, order_items_attributes: [:id, :item_id, :quantity]
+    params.require(:order).permit :user_id, order_items_attributes: [:id,
+      :item_id, :quantity]
   end
 
   def find_order
