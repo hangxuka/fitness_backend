@@ -53,14 +53,14 @@ User Api
 ####create item
   **URL**: [https://fit-ness-backend.herokuapp.com/api/items](api/items)
 
-  **Method**: **GET**
+  **Method**: **POST**
 
   **Param request**:
 
     + `- auth_token: type: string, presence: true`
     + `item[name]: type: string, presence: true`
     + `item[price]: type: float, presence: true`
-    + `item[manager_id]: type: int, presence: true`
+    + `item[manager_id]: type: int`
   **Request example**:
     {"item"=>{"name"=>"coca", "price"=>"100", "manager_id"=>"1"}, "auth_token"=>"7CuypTkZoTScPcHgLpWs"}
 
@@ -110,7 +110,7 @@ User Api
   **Param request**:
 
      + `- auth_token: type: string, presence: true`
-
+     + `role: type: string {trainer|customer}`
   **Request example**:
 
   **Response**:
