@@ -266,19 +266,103 @@ User Api
   **Response**:
 
     + `[
+  {
+    "id": 3,
+    "user_id": null,
+    "created_at": "2016-08-22T02:17:15.000Z",
+    "total_price": 122,
+    "order_items": [
+      {
+        "id": 1,
+        "order_id": 3,
+        "item_id": 1,
+        "quantity": 1,
+        "created_at": "2016-08-23T02:17:15.000Z",
+        "updated_at": "2016-08-23T02:17:15.000Z"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "name": "quy",
+        "price": 122,
+        "manager_id": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "user_id": null,
+    "created_at": "2016-07-22T02:17:15.000Z",
+    "total_price": 122,
+    "order_items": [
+      {
+        "id": 2,
+        "order_id": 4,
+        "item_id": 1,
+        "quantity": 1,
+        "created_at": "2016-08-23T02:21:58.000Z",
+        "updated_at": "2016-08-23T02:21:58.000Z"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "name": "quy",
+        "price": 122,
+        "manager_id": 1
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "user_id": null,
+    "created_at": "2015-07-22T02:17:15.000Z",
+    "total_price": 122,
+    "order_items": [
       {
         "id": 3,
-        "user_id": null,
-        "created_date": null,
-        "total_price": 122
-      },
+        "order_id": 5,
+        "item_id": 1,
+        "quantity": 1,
+        "created_at": "2016-08-23T02:22:08.000Z",
+        "updated_at": "2016-08-23T02:22:08.000Z"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "name": "quy",
+        "price": 122,
+        "manager_id": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "user_id": null,
+    "created_at": "2016-08-23T02:24:16.000Z",
+    "total_price": 122,
+    "order_items": [
       {
         "id": 4,
-        "user_id": null,
-        "created_date": null,
-        "total_price": 122
-      },
-    ]`
+        "order_id": 6,
+        "item_id": 1,
+        "quantity": 1,
+        "created_at": "2016-08-23T02:24:16.000Z",
+        "updated_at": "2016-08-23T02:24:16.000Z"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "name": "quy",
+        "price": 122,
+        "manager_id": 1
+      }
+    ]
+  }
+]`
 * ####filter transaction by date
   **URL**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
@@ -297,19 +381,55 @@ User Api
   **Response**:
 
     + `[
+  {
+    "id": 3,
+    "user_id": null,
+    "created_at": "2016-08-22T02:17:15.000Z",
+    "total_price": 122,
+    "order_items": [
       {
-        "id": 3,
-        "user_id": null,
-        "created_date": null,
-        "total_price": 122
-      },
+        "id": 1,
+        "order_id": 3,
+        "item_id": 1,
+        "quantity": 1,
+        "created_at": "2016-08-23T02:17:15.000Z",
+        "updated_at": "2016-08-23T02:17:15.000Z"
+      }
+    ],
+    "items": [
       {
-        "id": 4,
-        "user_id": null,
-        "created_date": null,
-        "total_price": 122
-      },
-    ]`
+        "id": 1,
+        "name": "quy",
+        "price": 122,
+        "manager_id": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "user_id": null,
+    "created_at": "2016-07-22T02:17:15.000Z",
+    "total_price": 122,
+    "order_items": [
+      {
+        "id": 2,
+        "order_id": 4,
+        "item_id": 1,
+        "quantity": 1,
+        "created_at": "2016-08-23T02:21:58.000Z",
+        "updated_at": "2016-08-23T02:21:58.000Z"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "name": "quy",
+        "price": 122,
+        "manager_id": 1
+      }
+    ]
+  },
+]`
 * ####create order
   **URL**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
@@ -324,18 +444,37 @@ User Api
   **Request example**:
 
     POST `
-    {"order"=>{"user_id"=>"1", "order_items_attributes"=>{"0"=>{"item_id"=>"1", "quantity"=>"1"}}}, "auth_token"=>"7CuypTkZoTScPcHgLpWs"}
+{"order"=>{"order_items_attributes"=>{"0"=>{"item_id"=>"1", "quantity"=>"12"}}, "user_id"=>"4"}, "auth_token"=>"_4V9TH1RZAu7JGdnAyHV"}
 `
 
   **Response**:
 
     + `{
-      "id": 7,
-      "user_id": 1,
-      "created_at": "2016-08-23T15:20:19.000Z",
-      "total_price": 122,
+  "id": 7,
+  "user_id": 4,
+  "created_at": "2016-08-24T07:05:13.000Z",
+  "total_price": 1464,
+  "messages": "create order success!",
+  "order_items": [
+    {
+      "id": 5,
+      "order_id": 7,
+      "item_id": 1,
+      "quantity": 12,
+      "created_at": "2016-08-24T07:05:13.000Z",
+      "updated_at": "2016-08-24T07:05:13.000Z"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "quy",
+      "price": 122,
+      "manager_id": 1,
       "messages": "create order success!"
-    }`
+    }
+  ]
+}`
 
 * ####show order
   **URL**: [https://fit-ness-backend.herokuapp.com/api/orders/:id](api/orders/:id)
@@ -345,6 +484,7 @@ User Api
   **Param request**:
 
     + `- auth_token: type: string, presence: true`
+    + `id: type: int, presence: true`
   **Request example**:
 
     GET `
@@ -354,17 +494,25 @@ User Api
 
     + `{
   "id": 7,
-  "user_id": 1,
-  "created_at": "2016-08-23T15:20:19.000Z",
-  "total_price": 122,
+  "user_id": 4,
+  "created_at": "2016-08-24T07:05:13.000Z",
+  "total_price": 1464,
   "order_items": [
     {
       "id": 5,
       "order_id": 7,
       "item_id": 1,
-      "quantity": 1,
-      "created_at": "2016-08-23T15:20:19.000Z",
-      "updated_at": "2016-08-23T15:20:19.000Z"
+      "quantity": 12,
+      "created_at": "2016-08-24T07:05:13.000Z",
+      "updated_at": "2016-08-24T07:05:13.000Z"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "quy",
+      "price": 122,
+      "manager_id": 1
     }
   ]
 }`
@@ -382,7 +530,7 @@ User Api
     + `order[order_items_attributes][0][id] type: int, presence: true`
   **Request example**:
 
-    PUT `{"order"=>{"user_id"=>"1", "order_items_attributes"=>{"0"=>{"item_id"=>"1", "quantity"=>"2", "id"=>"5"}}}, "auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"7"}
+    PUT ` {"order"=>{"order_items_attributes"=>{"0"=>{"item_id"=>"1", "quantity"=>"1", "id"=>"5"}}, "user_id"=>"1"}, "auth_token"=>"_4V9TH1RZAu7JGdnAyHV", "id"=>"7"}
 `
 
   **Response**:
@@ -390,18 +538,27 @@ User Api
     + `{
   "id": 7,
   "user_id": 1,
-  "created_at": "2016-08-23T15:20:19.000Z",
-  "total_price": 488,
+  "created_at": "2016-08-24T07:05:13.000Z",
+  "total_price": 122,
   "messages": "update order success!",
   "order_items": [
     {
       "order_id": 7,
       "id": 5,
       "item_id": 1,
-      "quantity": 2,
-      "created_at": "2016-08-23T15:20:19.000Z",
-      "updated_at": "2016-08-23T15:30:47.000Z"
-    },
+      "quantity": 1,
+      "created_at": "2016-08-24T07:05:13.000Z",
+      "updated_at": "2016-08-24T07:07:20.000Z"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "quy",
+      "price": 122,
+      "manager_id": 1,
+      "messages": "update order success!"
+    }
   ]
 }`
 * ####delete order
@@ -438,36 +595,62 @@ User Api
 
   **Response**:
     + `[
-        {
-          "id": 10,
-          "from_date": "2015-02-04T00:00:00.000Z",
-          "to_date": "2015-02-05T00:00:00.000Z",
-          "manager_id": 1,
-          "user_meetings": [
-            {
-              "id": 6,
-              "user_id": 1,
-              "meeting_id": 10,
-              "created_at": "2016-08-23T15:41:56.000Z",
-              "updated_at": "2016-08-23T15:41:56.000Z"
-            }
-          ]
-        },
-        {
-          "id": 8,
-          "from_date": "2016-08-21T00:00:00.000Z",
-          "to_date": "2016-08-21T00:00:00.000Z",
-          "manager_id": 1,
-          "user_meetings": [
-            {
-              "id": 2,
-              "user_id": 1,
-              "meeting_id": 8,
-              "created_at": "2016-08-23T06:33:47.000Z",
-              "updated_at": "2016-08-23T06:33:47.000Z"
-            }
-          ]
-        }
+  {
+    "id": 8,
+    "from_date": "2015-02-04T00:00:00.000Z",
+    "to_date": "2015-02-05T00:00:00.000Z",
+    "manager_id": 1,
+    "user_meetings": [
+      {
+        "id": 2,
+        "user_id": 4,
+        "meeting_id": 8,
+        "created_at": "2016-08-23T06:33:47.000Z",
+        "updated_at": "2016-08-23T16:01:37.000Z"
+      }
+    ],
+    "users": [
+      {
+        "id": 4,
+        "full_name": "Tran Hai Anh",
+        "birthday": "02-04-1994",
+        "tel_number": "0902004984",
+        "address": "Ha Noi",
+        "role": "trainer",
+        "manager_id": 1,
+        "avatar": "image",
+        "meeting_money": 100,
+        "salary": 100
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "from_date": "2015-02-04T00:00:00.000Z",
+    "to_date": "2015-02-05T00:00:00.000Z",
+    "manager_id": 1,
+    "user_meetings": [
+      {
+        "id": 6,
+        "user_id": 1,
+        "meeting_id": 10,
+        "created_at": "2016-08-23T15:41:56.000Z",
+        "updated_at": "2016-08-23T15:41:56.000Z"
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "full_name": "quy",
+        "birthday": null,
+        "tel_number": null,
+        "address": null,
+        "role": null,
+        "manager_id": null,
+        "avatar": null
+      }
+    ]
+  },
       ]`
 
 * ####filter meetings by date
@@ -501,6 +684,18 @@ User Api
               "updated_at": "2016-08-23T15:41:56.000Z"
             }
           ]
+              "users": [
+      {
+        "id": 1,
+        "full_name": "quy",
+        "birthday": null,
+        "tel_number": null,
+        "address": null,
+        "role": null,
+        "manager_id": null,
+        "avatar": null
+      }
+    ]
         }
     ]`
 * ####show meetings
@@ -533,6 +728,18 @@ User Api
               "updated_at": "2016-08-23T15:41:56.000Z"
             }
           ]
+              "users": [
+      {
+        "id": 1,
+        "full_name": "quy",
+        "birthday": null,
+        "tel_number": null,
+        "address": null,
+        "role": null,
+        "manager_id": null,
+        "avatar": null
+      }
+    ]
         }
     ]`
 * ####create meetings
@@ -545,25 +752,62 @@ User Api
     + `- auth_token: type: string, presence: true`
     + `meeting[from_date] type: string, presence: true`
     + `meeting[to_date] type: string, presence: true`
-    + `meeting[user_meetings_attributes][0][user_id] type: string, presence: true`
+    + `meeting[user_meetings_attributes][0][user_id] type: int, presence: true`
+    + `meeting[user_meetings_attributes][1][user_id] type: int, presence: true`
   **Request example**:
 
-    POST `{"meeting"=>{"from_date"=>"2016-02-04", "to_date"=>"2016-02-05", "manager_id"=>"1", "user_meetings_attributes"=>{"0"=>{"user_id"=>"4"}}}, "auth_token"=>"7CuypTkZoTScPcHgLpWs"}`
+    POST `{"meeting"=>{"from_date"=>"2012-09-09", "to_date"=>"2012-09-09", "manager_id"=>"1", "user_meetings_attributes"=>{"0"=>{"user_id"=>"3"}, "1"=>{"user_id"=>"4"}}}, "text/plain"=>[""], "auth_token"=>"_4V9TH1RZAu7JGdnAyHV"}
+`
 
   **Response**:
     + `{
-  "id": 11,
-  "from_date": "2016-02-04T00:00:00.000Z",
-  "to_date": "2016-02-05T00:00:00.000Z",
+  "id": 13,
+  "from_date": "2012-09-09T00:00:00.000Z",
+  "to_date": "2012-09-09T00:00:00.000Z",
   "manager_id": 1,
   "messages": "create meeting success!",
   "user_meetings": [
     {
-      "id": 7,
+      "id": 10,
+      "user_id": 3,
+      "meeting_id": 13,
+      "created_at": "2016-08-24T06:29:29.000Z",
+      "updated_at": "2016-08-24T06:29:29.000Z"
+    },
+    {
+      "id": 11,
       "user_id": 4,
-      "meeting_id": 11,
-      "created_at": "2016-08-23T16:06:49.000Z",
-      "updated_at": "2016-08-23T16:06:49.000Z"
+      "meeting_id": 13,
+      "created_at": "2016-08-24T06:29:29.000Z",
+      "updated_at": "2016-08-24T06:29:29.000Z"
+    }
+  ],
+  "users": [
+    {
+      "id": 3,
+      "full_name": "Tran Van Quy",
+      "birthday": "Quy",
+      "tel_number": "0902004984",
+      "address": "Ha Noi",
+      "role": "trainer",
+      "manager_id": 1,
+      "avatar": "image",
+      "meeting_money": 100,
+      "salary": 100,
+      "messages": "create meeting success!"
+    },
+    {
+      "id": 4,
+      "full_name": "Tran Hai Anh",
+      "birthday": "02-04-1994",
+      "tel_number": "0902004984",
+      "address": "Ha Noi",
+      "role": "trainer",
+      "manager_id": 1,
+      "avatar": "image",
+      "meeting_money": 100,
+      "salary": 100,
+      "messages": "create meeting success!"
     }
   ]
 }`
@@ -580,7 +824,10 @@ User Api
     + `meeting[from_date] type: string, presence: true`
     + `meeting[to_date] type: string, presence: true`
     + `meeting[user_meetings_attributes][0][user_id] type: string, presence: true`
-    + `meeting[user_meetings_attributes][0][id] type: string, presence: true`
+    + `meeting[user_meetings_attributes][0][user_meetings_id] type: string, presence: true`
+    + `meeting[user_meetings_attributes][1][user_id] type: string, presence: true`
+    + `meeting[user_meetings_attributes][1][user_meetings_id] type: string, presence: true`
+
   **Request example**:
 
     PUT `{"meeting"=>{"from_date"=>"2015-02-04", "to_date"=>"2015-02-05", "manager_id"=>"1", "user_meetings_attributes"=>{"0"=>{"user_id"=>"4", "id"=>"2"}}}, "auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"8"}
@@ -588,20 +835,57 @@ User Api
 
   **Response**:
     + `{
-  "id": 8,
-  "from_date": "2015-02-04T00:00:00.000Z",
-  "to_date": "2015-02-05T00:00:00.000Z",
+ {
+  "id": 15,
+  "from_date": "2012-09-09T00:00:00.000Z",
+  "to_date": "2012-09-09T00:00:00.000Z",
   "manager_id": 1,
   "messages": "update meeting success!",
   "user_meetings": [
     {
-      "id": 2,
-      "user_id": 4,
-      "meeting_id": 8,
-      "created_at": "2016-08-23T06:33:47.000Z",
-      "updated_at": "2016-08-23T16:01:37.000Z"
+      "meeting_id": 15,
+      "id": 19,
+      "user_id": 6,
+      "created_at": "2016-08-24T06:37:04.000Z",
+      "updated_at": "2016-08-24T06:55:34.000Z"
+    },
+    {
+      "meeting_id": 15,
+      "id": 20,
+      "user_id": 7,
+      "created_at": "2016-08-24T06:37:04.000Z",
+      "updated_at": "2016-08-24T06:55:34.000Z"
+    }
+  ],
+  "users": [
+    {
+      "id": 6,
+      "full_name": "QuyDep Trai",
+      "birthday": "09-02-02112",
+      "tel_number": "0999999999",
+      "address": "Ha noi",
+      "role": "customer",
+      "manager_id": 1,
+      "avatar": "#<ActionDispatch::Http::UploadedFile:0x000000043f0d00>",
+      "expiry_date": "1022-09-12T00:00:00.000Z",
+      "registry_date": "1021-09-12T00:00:00.000Z",
+      "messages": "update meeting success!"
+    },
+    {
+      "id": 7,
+      "full_name": "QuyDep Trai",
+      "birthday": "09-02-02112",
+      "tel_number": "0999999999",
+      "address": "Ha noi",
+      "role": "customer",
+      "manager_id": 1,
+      "avatar": "#<ActionDispatch::Http::UploadedFile:0x007fb13405ee10>",
+      "expiry_date": "1022-09-12T00:00:00.000Z",
+      "registry_date": "1021-09-12T00:00:00.000Z",
+      "messages": "update meeting success!"
     }
   ]
+}
 }`
 * ####DELETE meetings
   **URL**: [https://fit-ness-backend.herokuapp.com/api/meetings/:id](api/meetings/:id)

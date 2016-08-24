@@ -10,11 +10,13 @@ gem "coffee-rails", "~> 4.2"
 gem "devise"
 gem "bluecloth"
 gem "active_model_serializers"
-
+gem "paperclip"
+gem "carrierwave"
+gem "carrierwave-base64"
+gem "cloudinary"
 group :development, :test do
   gem "byebug", platform: :mri
 end
-
 group :development do
   gem "web-console"
   gem "listen", "~> 3.0.5"

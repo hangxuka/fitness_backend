@@ -13,7 +13,11 @@ class Api::V1::ManagersController < ApplicationController
 
   private
   def manager_params
+    params[:user][:avatar] = upload_image(params[:user][:avatar])
     params.require(:manager).permit :full_name, :user_name, :birthday,
       :address, :tel_number, :avatar
+  end
+  def upload_image image
+    image = "data:image/png;base64," << image.gsub(/\r\n/, "")
   end
 end
