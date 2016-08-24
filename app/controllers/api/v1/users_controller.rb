@@ -4,7 +4,11 @@ class Api::V1::UsersController < ApplicationController
   before_action :find_user, only: [:update, :destroy, :show]
 
   def index
-    users =  current_user.users
+    users = if %w(trainer customer).include? params[:role]
+      current_user.users.send params[:role]
+    else
+      current_user.users
+    end
     render json: users
   end
 
