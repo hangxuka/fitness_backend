@@ -29,6 +29,7 @@
   **Param request**:
 
     + `auth_token: type: string, presence: true`
+
   **Request example**:
 
   **Response**:
@@ -41,6 +42,7 @@
   **Param request**:
 
     + `auth_token: type: string, presence: true`
+
   **Request example**:
 
   **Response**:
@@ -55,6 +57,7 @@
     + `item[name]: type: string, presence: true`
     + `item[price]: type: float, presence: true`
     + `item[manager_id]: type: int`
+
   **Request example**:
     {"item"=>{"name"=>"coca", "price"=>"100", "manager_id"=>"1"}, "auth_token"=>"7CuypTkZoTScPcHgLpWs"}
 
@@ -76,8 +79,10 @@
     + `item[name]: type: string`
     + `item[price]: float`
     + `item[manager_id]: int`
+
   **Request example**:
     + `{"item"=>{"name"=>"Pepsi1"}, "id"=>"2"}`
+
   **Response**:
 
     + `  {"item":{"id":2,"name":"Pepsi1","price":20.0,"manager_id":1,"created_at":"2016-08-23T09:23:29.000Z","updated_at":"2016-08-23T09:28:37.000Z"},"messages":"update item success!"}`
@@ -88,7 +93,9 @@
   **Param request**:
 
      + `auth_token: type: string, presence: true`
+
   **Request example**:
+
   **Response**:
 
     + ` {"messages":"delete item success!"}`
@@ -101,6 +108,7 @@
 
      + `auth_token: type: string, presence: true`
      + `role: type: string {trainer|customer}`
+
   **Request example**:
 
   **Response**:
@@ -147,8 +155,8 @@
     + `user[role], type: trainer|customer presence: true`
 
   **Request example**:
-  `POST:  {"user"=>{"full_name"=>"Tran Van Quy", "birthday"=>"Quy", "tel_number"=>"0902004984", "address"=>"Ha Noi", "salary"=>"100", "meeting_money"=>"100", "registry_date"=>"", "expiry_date"=>"", "avatar"=>"image", "role"=>"trainer"}, "text/plain"=>[""], "auth_token"=>"7CuypTkZoTScPcHgLpWs"}
-`
+
+  `POST:  {"user"=>{"full_name"=>"Tran Van Quy", "birthday"=>"Quy", "tel_number"=>"0902004984", "address"=>"Ha Noi", "salary"=>"100", "meeting_money"=>"100", "registry_date"=>"", "expiry_date"=>"", "avatar"=>"image", "role"=>"trainer"}, "text/plain"=>[""], "auth_token"=>"7CuypTkZoTScPcHgLpWs"}`
 
   **Response**:
 
@@ -172,7 +180,7 @@
 
     + `auth_token: type: string, presence: true`
     + `user[full_name], type: string, presence: true`
-    + `user[birthday], type: string `
+    + `user[birthday], type: string`
     + `user[tel_number], type: string presence: true`
     + `user[address], type: string`
     + `user[salary], type: float`
@@ -183,22 +191,12 @@
     + `user[role], type: trainer|customer presence: true`
 
   **Request example**:
- Parameters: {"user"=>{"full_name"=>"Tran Hai Anh", "birthday"=>"02-04-1994", "tel_number"=>"0902004984", "address"=>"Ha Noi", "salary"=>"100", "meeting_money"=>"100", "registry_date"=>"", "expiry_date"=>"", "avatar"=>"image", "role"=>"trainer"}, "text/plain"=>[""], "auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"2"}`
+
+    + `PUT {"user"=>{"full_name"=>"Tran Hai Anh", "birthday"=>"02-04-1994", "tel_number"=>"0902004984", "address"=>"Ha Noi", "salary"=>"100", "meeting_money"=>"100", "registry_date"=>"", "expiry_date"=>"", "avatar"=>"image", "role"=>"trainer"}, "text/plain"=>[""], "auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"2"}`
 
   **Response**:
 
-    + `{
-      "id": 2,
-      "full_name": "Tran Hai Anh",
-      "birthday": "02-04-1994",
-      "tel_number": "0902004984",
-      "address": "Ha Noi",
-      "role": "trainer",
-      "manager_id": 1,
-      "meeting_money": 100,
-      "salary": 100,
-      "messages": "update trainer success!"
-    }`
+    + `{"id": 2, "full_name": "Tran Hai Anh", "birthday": "02-04-1994", "tel_number": "0902004984", "address": "Ha Noi", "role": "trainer", "manager_id": 1, "meeting_money": 100, "salary": 100, "messages": "update trainer success!"}`
 
 * ####destroy user
   **DELETE**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users)
@@ -211,12 +209,9 @@
 
     DELETE `"auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"2"}`
 
-
   **Response**:
 
-    + `{
-      "messages": "delete user success!"
-    }`
+    + `{"messages": "delete user success!"}`
 
 * ####show user
   **GET**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users/:id)
@@ -357,6 +352,7 @@
      + `auth_token: type: string, presence: true`
      + `filter_type: type: string[day| month| year], presence: true`
      + `date: type: string, presence: true`
+
   **Request example**:
 
     GET `
@@ -424,6 +420,7 @@
     + `order[order_items_attributes][0][item_id]: type: int, presence: true`
     + `order[order_items_attributes][0][quantity]: type: int, presence: true`
     + `order[user_id]: type: int, presence: true`
+
   **Request example**:
 
     POST `
@@ -466,6 +463,7 @@
 
     + `auth_token: type: string, presence: true`
     + `id: type: int, presence: true`
+
   **Request example**:
 
     GET `
@@ -508,10 +506,10 @@
     + `order[order_items_attributes][0][quantity]: type: int, presence: true`
     + `order[user_id]: type: int, presence: true`
     + `order[order_items_attributes][0][id] type: int, presence: true`
+
   **Request example**:
 
-    PUT ` {"order"=>{"order_items_attributes"=>{"0"=>{"item_id"=>"1", "quantity"=>"1", "id"=>"5"}}, "user_id"=>"1"}, "auth_token"=>"_4V9TH1RZAu7JGdnAyHV", "id"=>"7"}
-`
+    PUT ` {"order"=>{"order_items_attributes"=>{"0"=>{"item_id"=>"1", "quantity"=>"1", "id"=>"5"}}, "user_id"=>"1"}, "auth_token"=>"_4V9TH1RZAu7JGdnAyHV", "id"=>"7"}`
 
   **Response**:
 
@@ -640,6 +638,7 @@
 
      + `auth_token: type: string, presence: true`
      + `date: type: string, presence: true`
+
   **Request example**:
 
     GET `
@@ -684,6 +683,7 @@
 
     + `auth_token: type: string, presence: true`
     + `id: type: int, presence: true`
+
   **Request example**:
 
     GET `
@@ -730,6 +730,7 @@
     + `meeting[to_date] type: string, presence: true`
     + `meeting[user_meetings_attributes][0][user_id] type: int, presence: true`
     + `meeting[user_meetings_attributes][1][user_id] type: int, presence: true`
+
   **Request example**:
 
     POST `{"meeting"=>{"from_date"=>"2012-09-09", "to_date"=>"2012-09-09", "manager_id"=>"1", "user_meetings_attributes"=>{"0"=>{"user_id"=>"3"}, "1"=>{"user_id"=>"4"}}}, "text/plain"=>[""], "auth_token"=>"_4V9TH1RZAu7JGdnAyHV"}
