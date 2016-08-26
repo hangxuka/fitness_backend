@@ -56,7 +56,7 @@ class Api::V1::OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit :user_id, order_items_attributes: [:id,
-      :item_id, :quantity]
+      :item_id, :quantity, :_destroy]
   end
 
   def find_order

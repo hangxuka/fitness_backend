@@ -227,8 +227,35 @@
   **Response**:
 
     + `{
-      "messages": "delete user success!"
-    }`
+          "user_profile": {
+            "id": 1,
+            "full_name": "Pham Thu Hang",
+            "birthday": "02/03/1994",
+            "tel_number": "098752454",
+            "address": "Nam Dinh",
+            "salary": null,
+            "meeting_money": 100,
+            "avatar": {
+              "url": null
+            },
+            "role": "trainer",
+            "manager_id": null,
+            "created_at": "2016-08-26T06:29:48.000Z",
+            "updated_at": "2016-08-26T06:29:48.000Z",
+            "expiry_date": null,
+            "registry_date": null
+          },
+          "user_meeting": [
+            {
+              "id": 1,
+              "from_date": "2016-02-01T00:00:00.000Z",
+              "to_date": "2016-02-02T00:00:00.000Z",
+              "manager_id": 1,
+              "created_at": "2016-08-31T07:07:42.000Z",
+              "updated_at": "2016-08-31T07:07:42.000Z"
+            }
+          ]
+        }`
 
 ## Order
 
