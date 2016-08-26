@@ -49,11 +49,16 @@ class Api::V1::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit :full_name, :birthday, :tel_number, :address, :salary,
-      :meeting_money, :registry_date, :expiry_date, :avatar, :role
+    params[:user][:avatar] = upload_image(params[:user][:avatar])
+    params.require(:user).permit :full_name, :birthday, :tel_number, :address,
+    :salary, :meeting_money, :registry_date, :expiry_date, :avatar, :role
   end
 
   def find_user
     @user = User.find_by id: params[:id]
+  end
+
+  def upload_image image
+    image = "data:image/png;base64," << image.gsub(/\r\n/, "")
   end
 end
