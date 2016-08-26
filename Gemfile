@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-
 gem "rails", "~> 5.0.0", ">= 5.0.0.1"
 gem "mysql2"
 gem "puma", "~> 3.0"
@@ -14,9 +13,11 @@ gem "paperclip"
 gem "carrierwave"
 gem "carrierwave-base64"
 gem "cloudinary"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
+
 group :development do
   gem "web-console"
   gem "listen", "~> 3.0.5"
@@ -25,6 +26,7 @@ group :development do
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 group :production do
   gem "pg"
   # ruby "2.2.3"
