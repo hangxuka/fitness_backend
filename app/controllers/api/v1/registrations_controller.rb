@@ -4,6 +4,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   def create
     @manager = Manager.new manager_params
+
     respond_to do |format|
       if @manager.save
         format.json do
