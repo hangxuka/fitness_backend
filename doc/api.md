@@ -1,13 +1,11 @@
-User Api
+##User Api
 --------
 * ####update_manager
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/managers/:id](api/managers/:id)
-
-  **Method**: **PUT**
+  **PUT**: [https://fit-ness-backend.herokuapp.com/api/managers/:id](api/managers/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `manager[full_name]: type: string`
     + `manager[user_name]: type: string, presence: true`
     + `manager[birthday]: type: string`
@@ -23,14 +21,14 @@ User Api
 
     + `{"full_name":"Tran Van Quy","user_name":"Quy","birthday":"02-04-1994","address":"Ha Phong","tel_number":"0902004984","avatar":"image","messages":"update manager success!"}`
 
+##Menu
+--------
 * ####all items
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/items](api/items)
-
-  **Method**: **GET**
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/items](api/items)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
   **Request example**:
 
   **Response**:
@@ -38,26 +36,22 @@ User Api
     + `[{"id":1,"name":"coca","price":122.0},{"id":2,"name":"pepsi","price":122.0}]`
 
 * ####show item
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/items/:id](api/items/:id)
-
-  **Method**: **GET**
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/items/:id](api/items/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
   **Request example**:
 
   **Response**:
 
     + `[{"id":1,"name":"coca","price":122.0}]`
-####create item
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/items](api/items)
-
-  **Method**: **POST**
+* ####create item
+  **POST**: [https://fit-ness-backend.herokuapp.com/api/items](api/items)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `item[name]: type: string, presence: true`
     + `item[price]: type: float, presence: true`
     + `item[manager_id]: type: int`
@@ -74,13 +68,11 @@ User Api
     }`
 
 * ####update item
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/items/:id](api/items/:id)
-
-  **Method**: **PUT**
+  **PUT**: [https://fit-ness-backend.herokuapp.com/api/items/:id](api/items/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `item[name]: type: string`
     + `item[price]: float`
     + `item[manager_id]: int`
@@ -89,27 +81,25 @@ User Api
   **Response**:
 
     + `  {"item":{"id":2,"name":"Pepsi1","price":20.0,"manager_id":1,"created_at":"2016-08-23T09:23:29.000Z","updated_at":"2016-08-23T09:28:37.000Z"},"messages":"update item success!"}`
-* ####destroy item
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/items/:id](api/items/:id)
 
-  **Method**: **DELETE**
+* ####destroy item
+  **DELETE**: [https://fit-ness-backend.herokuapp.com/api/items/:id](api/items/:id)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+     + `auth_token: type: string, presence: true`
   **Request example**:
   **Response**:
 
     + ` {"messages":"delete item success!"}`
 
+##Trainer and Customer
 * ####all user
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/users](api/users)
-
-  **Method**: **GET**
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/users](api/users)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+     + `auth_token: type: string, presence: true`
      + `role: type: string {trainer|customer}`
   **Request example**:
 
@@ -138,14 +128,13 @@ User Api
     "salary": 100
   }
 ]`
-* ####Create user
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/users](api/users)
 
-  **Method**: **POST**
+* ####Create trainer or customer
+  **POST**: [https://fit-ness-backend.herokuapp.com/api/users](api/users)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `user[full_name], type: string, presence: true`
     + `user[birthday], type: string `
     + `user[tel_number], type: string presence: true`
@@ -175,14 +164,13 @@ User Api
         "salary": 100,
         "messages": "create trainer success!"
       }`
-* ####update user
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users)
 
-  **Method**: **PUT**
+* ####update user
+  **PUT**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `user[full_name], type: string, presence: true`
     + `user[birthday], type: string `
     + `user[tel_number], type: string presence: true`
@@ -213,13 +201,11 @@ User Api
     }`
 
 * ####destroy user
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users)
-
-  **Method**: **DELETE**
+  **DELETE**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+     + `auth_token: type: string, presence: true`
 
   **Request example**:
 
@@ -231,33 +217,32 @@ User Api
     + `{
       "messages": "delete user success!"
     }`
-* ####show user
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users/:id)
 
-  **Method**: **GET**
+* ####show user
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/users/:id](api/users/:id)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+     + `auth_token: type: string, presence: true`
 
   **Request example**:
 
     GET `"auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"2"}`
-
 
   **Response**:
 
     + `{
       "messages": "delete user success!"
     }`
-* ####all order
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
-  **Method**: **GET**
+## Order
+
+* ####all order
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
 
   **Request example**:
 
@@ -363,16 +348,15 @@ User Api
     ]
   }
 ]`
-* ####filter transaction by date
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
-  **Method**: **GET**
+* ####filter transaction by date
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
-     + `- filter_type: type: string[day| month| year], presence: true`
-     + `- date: type: string, presence: true`
+     + `auth_token: type: string, presence: true`
+     + `filter_type: type: string[day| month| year], presence: true`
+     + `date: type: string, presence: true`
   **Request example**:
 
     GET `
@@ -430,14 +414,13 @@ User Api
     ]
   },
 ]`
-* ####create order
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
-  **Method**: **POST**
+* ####create order
+  **POST**: [https://fit-ness-backend.herokuapp.com/api/orders](api/orders/)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `order[order_items_attributes][0][item_id]: type: int, presence: true`
     + `order[order_items_attributes][0][quantity]: type: int, presence: true`
     + `order[user_id]: type: int, presence: true`
@@ -477,13 +460,11 @@ User Api
 }`
 
 * ####show order
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/orders/:id](api/orders/:id)
-
-  **Method**: **GET**
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/orders/:id](api/orders/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `id: type: int, presence: true`
   **Request example**:
 
@@ -516,14 +497,13 @@ User Api
     }
   ]
 }`
-* ####update order
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/orders/:id](api/orders/:id)
 
-  **Method**: **PUT**
+* ####update order
+  **PUT**: [https://fit-ness-backend.herokuapp.com/api/orders/:id](api/orders/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `order[order_items_attributes][0][item_id]: type: int, presence: true`
     + `order[order_items_attributes][0][quantity]: type: int, presence: true`
     + `order[user_id]: type: int, presence: true`
@@ -561,15 +541,14 @@ User Api
     }
   ]
 }`
-* ####delete order
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/orders/:id](api/orders/:id)
 
-  **Method**: **DELETE**
+* ####delete order
+  **DELETE**: [https://fit-ness-backend.herokuapp.com/api/orders/:id](api/orders/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
-    + `- id: type: int, presence: true`
+    + `auth_token: type: string, presence: true`
+    + `id: type: int, presence: true`
 
   **Request example**:
 
@@ -580,88 +559,87 @@ User Api
     + `{
       "messages": "delete order success!"
     }`
-* ####all meetings
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/meetings](api/meetings/)
 
-  **Method**: **GET**
+##Meeting
+
+* ####all meetings
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/meetings](api/meetings/)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
+     + `auth_token: type: string, presence: true`
 
   **Request example**:
 
     GET `"auth_token"=>"7CuypTkZoTScPcHgLpWs"}`
 
   **Response**:
-    + `[
-  {
-    "id": 8,
-    "from_date": "2015-02-04T00:00:00.000Z",
-    "to_date": "2015-02-05T00:00:00.000Z",
-    "manager_id": 1,
-    "user_meetings": [
+    ```[
       {
-        "id": 2,
-        "user_id": 4,
-        "meeting_id": 8,
-        "created_at": "2016-08-23T06:33:47.000Z",
-        "updated_at": "2016-08-23T16:01:37.000Z"
-      }
-    ],
-    "users": [
-      {
-        "id": 4,
-        "full_name": "Tran Hai Anh",
-        "birthday": "02-04-1994",
-        "tel_number": "0902004984",
-        "address": "Ha Noi",
-        "role": "trainer",
+        "id": 8,
+        "from_date": "2015-02-04T00:00:00.000Z",
+        "to_date": "2015-02-05T00:00:00.000Z",
         "manager_id": 1,
-        "avatar": "image",
-        "meeting_money": 100,
-        "salary": 100
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "from_date": "2015-02-04T00:00:00.000Z",
-    "to_date": "2015-02-05T00:00:00.000Z",
-    "manager_id": 1,
-    "user_meetings": [
+        "user_meetings": [
+          {
+            "id": 2,
+            "user_id": 4,
+            "meeting_id": 8,
+            "created_at": "2016-08-23T06:33:47.000Z",
+            "updated_at": "2016-08-23T16:01:37.000Z"
+          }
+        ],
+        "users": [
+          {
+            "id": 4,
+            "full_name": "Tran Hai Anh",
+            "birthday": "02-04-1994",
+            "tel_number": "0902004984",
+            "address": "Ha Noi",
+            "role": "trainer",
+            "manager_id": 1,
+            "avatar": "image",
+            "meeting_money": 100,
+            "salary": 100
+          }
+        ]
+      },
       {
-        "id": 6,
-        "user_id": 1,
-        "meeting_id": 10,
-        "created_at": "2016-08-23T15:41:56.000Z",
-        "updated_at": "2016-08-23T15:41:56.000Z"
-      }
-    ],
-    "users": [
-      {
-        "id": 1,
-        "full_name": "quy",
-        "birthday": null,
-        "tel_number": null,
-        "address": null,
-        "role": null,
-        "manager_id": null,
-        "avatar": null
-      }
-    ]
-  },
-      ]`
+        "id": 10,
+        "from_date": "2015-02-04T00:00:00.000Z",
+        "to_date": "2015-02-05T00:00:00.000Z",
+        "manager_id": 1,
+        "user_meetings": [
+          {
+            "id": 6,
+            "user_id": 1,
+            "meeting_id": 10,
+            "created_at": "2016-08-23T15:41:56.000Z",
+            "updated_at": "2016-08-23T15:41:56.000Z"
+          }
+        ],
+        "users": [
+          {
+            "id": 1,
+            "full_name": "quy",
+            "birthday": null,
+            "tel_number": null,
+            "address": null,
+            "role": null,
+            "manager_id": null,
+            "avatar": null
+          }
+        ]
+      },
+    ]```
 
 * ####filter meetings by date
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/meetings](api/meetings/)
-
-  **Method**: **GET**
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/meetings](api/meetings/)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
-     + `- date: type: string, presence: true`
+     + `auth_token: type: string, presence: true`
+     + `date: type: string, presence: true`
   **Request example**:
 
     GET `
@@ -698,15 +676,14 @@ User Api
     ]
         }
     ]`
-* ####show meetings
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/meetings/:id](api/meetings/:id)
 
-  **Method**: **GET**
+* ####show meetings
+  **GET**: [https://fit-ness-backend.herokuapp.com/api/meetings/:id](api/meetings/:id)
 
   **Param request**:
 
-     + `- auth_token: type: string, presence: true`
-     + ` id: type: int, presence: true`
+    + `auth_token: type: string, presence: true`
+    + `id: type: int, presence: true`
   **Request example**:
 
     GET `
@@ -742,14 +719,13 @@ User Api
     ]
         }
     ]`
-* ####create meetings
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/meetings/](api/meetings/)
 
-  **Method**: **POST**
+* ####create meetings
+  **POST**: [https://fit-ness-backend.herokuapp.com/api/meetings/](api/meetings/)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
+    + `auth_token: type: string, presence: true`
     + `meeting[from_date] type: string, presence: true`
     + `meeting[to_date] type: string, presence: true`
     + `meeting[user_meetings_attributes][0][user_id] type: int, presence: true`
@@ -813,14 +789,12 @@ User Api
 }`
 
 * ####update meetings
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/meetings/:id](api/meetings/:id)
-
-  **Method**: **PUT**
+  **PUT**: [https://fit-ness-backend.herokuapp.com/api/meetings/:id](api/meetings/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
-    + ` id: type: int, presence: true`
+    + `auth_token: type: string, presence: true`
+    + `id: type: int, presence: true`
     + `meeting[from_date] type: string, presence: true`
     + `meeting[to_date] type: string, presence: true`
     + `meeting[user_meetings_attributes][0][user_id] type: string, presence: true`
@@ -830,8 +804,7 @@ User Api
 
   **Request example**:
 
-    PUT `{"meeting"=>{"from_date"=>"2015-02-04", "to_date"=>"2015-02-05", "manager_id"=>"1", "user_meetings_attributes"=>{"0"=>{"user_id"=>"4", "id"=>"2"}}}, "auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"8"}
-`
+    PUT `{"meeting"=>{"from_date"=>"2015-02-04", "to_date"=>"2015-02-05", "manager_id"=>"1", "user_meetings_attributes"=>{"0"=>{"user_id"=>"4", "id"=>"2"}}}, "auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"8"}`
 
   **Response**:
     + `{
@@ -887,19 +860,18 @@ User Api
   ]
 }
 }`
-* ####DELETE meetings
-  **URL**: [https://fit-ness-backend.herokuapp.com/api/meetings/:id](api/meetings/:id)
 
-  **Method**: **DELETE**
+* ####DELETE meetings
+  **DELETE**: [https://fit-ness-backend.herokuapp.com/api/meetings/:id](api/meetings/:id)
 
   **Param request**:
 
-    + `- auth_token: type: string, presence: true`
-    + ` id: type: int, presence: true`
+    + `auth_token: type: string, presence: true`
+    + `id: type: int, presence: true`
+
   **Request example**:
 
-    DELETE `{"auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"11"}
-`
+    DELETE `{"auth_token"=>"7CuypTkZoTScPcHgLpWs", "id"=>"11"}`
 
   **Response**:
     + `{
