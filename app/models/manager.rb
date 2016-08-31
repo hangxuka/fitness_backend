@@ -8,9 +8,7 @@ class Manager < ApplicationRecord
   has_many :items
   has_many :orders
 
-  validates :user_name, presence: true
   before_save :set_birthday
-  # mount_base64_uploader :avatar, AvatarUploader
 
   def generate_authentication_token!
     begin

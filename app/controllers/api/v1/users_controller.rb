@@ -59,6 +59,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def upload_image image
-    image = "data:image/png;base64," << image.gsub(/\r\n/, "")
+    if image.present?
+      image = "data:image/png;base64," << image.gsub(/\r\n/, "")
+    end
   end
 end

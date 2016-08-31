@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :manager
   has_many :orders
-  has_many :user_meetings
+  has_many :user_meetings, dependent: :destroy
   has_many :meetings, through: :user_meetings
 
   enum role: {trainer: 0, customer: 1}
