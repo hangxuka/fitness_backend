@@ -9,7 +9,8 @@ class Api::V1::SessionsController < Devise::SessionsController
       sign_in manager, store: false
       manager.generate_authentication_token!
       manager.save
-      render json: {user: manager, success_message: t("api.login_success")}, status: 200
+      render json: {user: ManagerSerializer.new(manager).as_json,
+        success_message: t("api.login_success")}, status: 200
     else
       render json: {error_message: t("api.login_fail")}, status: 422
     end
