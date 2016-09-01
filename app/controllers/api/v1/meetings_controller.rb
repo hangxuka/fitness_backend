@@ -20,11 +20,17 @@ class Api::V1::MeetingsController < ApplicationController
 
   def create
     @meeting = current_user.meetings.new meeting_params
-    if @meeting.save
-      render json: @meeting, serializer: MeetingSerializer,
-        messages: t("api.meeting.create_success")
-    else
+    trainer =  User.find_by id: meeting_params[:trainer_id]
+    customer = User.find_by id: meeting_params[:customer_id]
+    if have_over_lap? trainer, customer, meeting_params
       render json: {messages: t("api.meeting.create_fail")}
+    else
+      if @meeting.save
+        render json: @meeting, serializer: MeetingSerializer,
+          messages: t("api.meeting.create_success")
+      else
+        render json: {errors: @meeting.errors}
+      end
     end
   end
 
@@ -56,7 +62,7 @@ class Api::V1::MeetingsController < ApplicationController
   private
   def meeting_params
     params.require(:meeting).permit :from_date, :to_date, :manager_id,
-      user_meetings_attributes: [:id, :user_id, :_destroy]
+      :customer_id, :trainer_id
   end
 
   def find_Meeting

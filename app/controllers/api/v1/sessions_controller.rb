@@ -16,10 +16,10 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
   def destroy
-    if current_manager.present?
-      current_manager.generate_authentication_token!
-      current_manager.save
-      sign_out current_manager
+    if current_user.present?
+      current_user.generate_authentication_token!
+      current_user.save
+      sign_out current_user
       render json: {success_message: t("api.logout_success")}
     else
       render json: {error_message: t("api.logout_fail")}

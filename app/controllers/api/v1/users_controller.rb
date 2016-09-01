@@ -13,13 +13,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    render json: @user
+    render json: {user_profile: @user, user_meeting: @user.meetings}, status: :ok
   end
 
   def create
     user = current_user.users.build user_params
     if user.save
-      render json: user, serializer: UserSerializer,
+      render json: user,
         messages: I18n.t("api.#{user.role}.create_success")
     else
       render json: {errors: user.errors}, status: 422

@@ -9,6 +9,7 @@ class Manager < ApplicationRecord
   has_many :orders
 
   before_save :set_birthday
+  mount_base64_uploader :avatar, AvatarUploader
 
   def generate_authentication_token!
     begin

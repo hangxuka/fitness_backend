@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 20160825110605) do
     t.datetime "from_date"
     t.datetime "to_date"
     t.integer  "manager_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "customer_id"
+    t.integer  "trainer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["manager_id"], name: "index_meetings_on_manager_id", using: :btree
   end
 
@@ -73,15 +75,6 @@ ActiveRecord::Schema.define(version: 20160825110605) do
     t.datetime "updated_at",              null: false
     t.index ["manager_id"], name: "index_orders_on_manager_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
-  end
-
-  create_table "user_meetings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "meeting_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["meeting_id"], name: "index_user_meetings_on_meeting_id", using: :btree
-    t.index ["user_id"], name: "index_user_meetings_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -107,7 +100,5 @@ ActiveRecord::Schema.define(version: 20160825110605) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "managers"
   add_foreign_key "orders", "users"
-  add_foreign_key "user_meetings", "meetings"
-  add_foreign_key "user_meetings", "users"
   add_foreign_key "users", "managers"
 end

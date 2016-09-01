@@ -1,12 +1,13 @@
 class Meeting < ActiveRecord::Base
   scope :order_by_from_date, -> {order from_date: :asc}
 
-  has_many :user_meetings, dependent: :destroy
-  has_many :users, through: :user_meetings
+  belongs_to :customer, class_name: User.name
+  belongs_to :trainer, class_name: User.name
   belongs_to :manager
 
+  validates :customer, presence: true
+  validates :trainer, presence: true
   validates :from_date, :to_date, :manager_id, presence: true
-  accepts_nested_attributes_for :user_meetings, allow_destroy: true
 
   class << self
     def filter_by_date params_date
