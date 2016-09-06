@@ -1,5 +1,4 @@
 class Manager < ApplicationRecord
-
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
@@ -19,6 +18,7 @@ class Manager < ApplicationRecord
 
   private
   def set_birthday
-    self.birthday = (DateTime.parse self.birthday).strftime "%d/%m/%Y"
+    self.birthday = (DateTime.parse self.birthday)
+      .strftime I18n.t("api.birthday_date_format") if self.birthday
   end
 end

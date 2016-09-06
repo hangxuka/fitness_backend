@@ -5,13 +5,12 @@ class Api::V1::MeetingsController < ApplicationController
 
   def index
     if type = params[:date].present?
-      @meetings = current_user.meetings.filter_by_date(params[:date])
+      meetings = current_user.meetings.filter_by_date(params[:date])
         .order_by_from_date
-      render json: @meetings
     else
-      @meetings = current_user.meetings.order_by_from_date
-      render json: @meetings
+      meetings = current_user.meetings.order_by_from_date
     end
+    render json: load_array_of_meetings(meetings)
   end
 
   def show
@@ -19,31 +18,24 @@ class Api::V1::MeetingsController < ApplicationController
   end
 
   def create
-    @meeting = current_user.meetings.new meeting_params
-    trainer =  User.find_by id: meeting_params[:trainer_id]
-    customer = User.find_by id: meeting_params[:customer_id]
-    if have_over_lap? trainer, customer, meeting_params
-      render json: {messages: t("api.meeting.create_fail")}
+    meeting = current_user.meetings.new meeting_params
+    if meeting.save
+      render json: meeting, serializer: MeetingSerializer,
+        messages: t("api.meeting.create_success"), status: :ok
     else
-      if @meeting.save
-        render json: @meeting, serializer: MeetingSerializer,
-          messages: t("api.meeting.create_success")
-      else
-        render json: {errors: @meeting.errors}
-      end
+      render json: {errors: meeting.errors.full_messages}
     end
   end
 
   def update
     if @meeting.present?
       if @meeting.update_attributes meeting_params
-        render json: @meeting, serializer: MeetingSerializer,
-          messages: t("api.meeting.update_success")
+        render json: @meeting, status: :ok
       else
-        render json: {messages: t("api.meeting.update_success")}
+        render json: {errors: @meeting.errors.full_messages}
       end
     else
-      render json: {messages: t("api.meeting.not_found")}
+      render json: {errors: t("api.meeting.not_found")}
     end
   end
 

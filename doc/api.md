@@ -533,6 +533,7 @@
     + `order[order_items_attributes][0][quantity]: type: int, presence: true`
     + `order[user_id]: type: int, presence: true`
     + `order[order_items_attributes][0][id] type: int, presence: true`
+    + `order[order_items_attributes][0][_destroy] type: boolean, presence: true`
 
   **Request example**:
 
@@ -599,64 +600,36 @@
     GET `"auth_token"=>"7CuypTkZoTScPcHgLpWs"}`
 
   **Response**:
-    ```[
-      {
-        "id": 8,
-        "from_date": "2015-02-04T00:00:00.000Z",
-        "to_date": "2015-02-05T00:00:00.000Z",
-        "manager_id": 1,
-        "user_meetings": [
-          {
-            "id": 2,
-            "user_id": 4,
-            "meeting_id": 8,
-            "created_at": "2016-08-23T06:33:47.000Z",
-            "updated_at": "2016-08-23T16:01:37.000Z"
-          }
-        ],
-        "users": [
-          {
-            "id": 4,
-            "full_name": "Tran Hai Anh",
-            "birthday": "02-04-1994",
-            "tel_number": "0902004984",
-            "address": "Ha Noi",
-            "role": "trainer",
-            "manager_id": 1,
-            "avatar": "image",
-            "meeting_money": 100,
-            "salary": 100
-          }
-        ]
-      },
-      {
-        "id": 10,
-        "from_date": "2015-02-04T00:00:00.000Z",
-        "to_date": "2015-02-05T00:00:00.000Z",
-        "manager_id": 1,
-        "user_meetings": [
-          {
-            "id": 6,
-            "user_id": 1,
-            "meeting_id": 10,
-            "created_at": "2016-08-23T15:41:56.000Z",
-            "updated_at": "2016-08-23T15:41:56.000Z"
-          }
-        ],
-        "users": [
-          {
-            "id": 1,
-            "full_name": "quy",
-            "birthday": null,
-            "tel_number": null,
-            "address": null,
-            "role": null,
-            "manager_id": null,
-            "avatar": null
-          }
-        ]
-      },
-    ]```
+    ```[{
+          :id=>1,
+          :from_date=>Thu, 01 Sep 2016 08:15:16 UTC +00:00,
+          :to_date=>Thu, 01 Sep 2016 08:18:18 UTC +00:00,
+          :manager_id=>1,
+          :trainer_id=>3,
+          :customer_id=>4,
+          :trainer=>
+           {:id=>3,
+            :full_name=>"Phan Tan",
+            :birthday=>"01/09/2016",
+            :tel_number=>"0123213232",
+            :address=>"dsads",
+            :role=>"trainer",
+            :manager_id=>1,
+            :avatar=>"/uploads/265572f7cd.png",
+            :meeting_money=>22222.0,
+            :salary=>nil},
+          :customer=>
+           {:id=>4,
+            :full_name=>"Nguyen Thi Tuyen",
+            :birthday=>"01/09/2016",
+            :tel_number=>"0132637236",
+            :address=>"Thai Binh",
+            :role=>"customer",
+            :manager_id=>1,
+            :avatar=>"/uploads/e5c5a872db.png",
+            :expiry_date=>"01/09/2016",
+            :registry_date=>"01/09/2016"}}]
+    ```
 
 * ####filter meetings by date
   **GET**: [https://fit-ness-backend.herokuapp.com/api/meetings](api/meetings/)

@@ -4,20 +4,16 @@ class Api::V1::ManagersController < ApplicationController
 
   def update
     if current_user.update_attributes manager_params
-      render json: current_user, serializer: ManagerSerializer,
-        messages: t("api.manager.update_success"), status: 200
+      render json: {manager: ManagerSerializer.new(current_user).as_json}, status: :ok
     else
-      render json: {messages: t("api.manager.update_fail")}
+      render json: {errors: t("api.manager.update_fail")}
     end
   end
 
   private
   def manager_params
-    params[:user][:avatar] = upload_image(params[:user][:avatar])
-    params.require(:manager).permit :full_name, :user_name, :birthday,
-      :address, :tel_number, :avatar
-  end
-  def upload_image image
-    image = "data:image/png;base64," << image.gsub(/\r\n/, "")
+    params[:manager][:avatar] = set_param_image_base_64(params[:manager][:avatar])
+    params.require(:manager).permit :full_name, :password,
+      :birthday, :address, :tel_number, :avatar
   end
 end

@@ -1,5 +1,5 @@
 class OrderItemSerializer < ActiveModel::Serializer
-  attributes :quantity, :item
+  attributes :quantity, :item, :id
   attribute :messages, if: -> {@instance_options[:messages].present?}
 
   def messages

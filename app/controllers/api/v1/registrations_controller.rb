@@ -4,21 +4,15 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   def create
     @manager = Manager.new manager_params
-
+    @manager.generate_authentication_token!
     respond_to do |format|
       if @manager.save
         format.json do
-          render json: {
-            manager: @manager,
-            success_message: t("api.registry_success")
-          }, status: :created
+          render json: {manager: ManagerSerializer.new(@manager).as_json}, status: :created
         end
       else
         format.json do
-          render json: {
-            error: @manager.errors,
-            fail_message: t("api.registry_fail")
-          }, status: :un_created
+          render json: {errors: @manager.errors.full_messages}, status: :un_created
         end
       end
     end
@@ -26,7 +20,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   private
   def manager_params
-    params.permit :full_name, :user_name, :email, :password,
+    params.permit :full_name, :email, :password,
       :birthday, :address, :tel_number, :avatar
   end
 end
