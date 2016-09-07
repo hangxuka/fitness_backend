@@ -13,7 +13,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    render json: {user_profile: @user, user_meeting: @user.meetings}, status: :ok
+    if @user.trainer?
+      render json: load_array_of_meetings(@user.trainer_bookings), status: :ok
+    else
+      render json: load_array_of_meetings(@user.customer_bookings), status: :ok
+    end
   end
 
   def create
@@ -49,18 +53,12 @@ class Api::V1::UsersController < ApplicationController
 
   private
   def user_params
-    params[:user][:avatar] = upload_image(params[:user][:avatar])
+    params[:user][:avatar] = set_param_image_base_64(params[:user][:avatar])
     params.require(:user).permit :full_name, :birthday, :tel_number, :address,
-    :salary, :meeting_money, :registry_date, :expiry_date, :avatar, :role
+      :salary, :meeting_money, :registry_date, :expiry_date, :avatar, :role
   end
 
   def find_user
     @user = User.find_by id: params[:id]
-  end
-
-  def upload_image image
-    if image.present?
-      image = "data:image/png;base64," << image.gsub(/\r\n/, "")
-    end
   end
 end

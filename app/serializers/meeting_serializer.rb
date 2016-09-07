@@ -4,4 +4,7 @@ class MeetingSerializer < ActiveModel::Serializer
   def messages
     @instance_options[:messages]
   end
+
+  belongs_to :trainer
+  belongs_to :customer
 end

@@ -60,6 +60,9 @@ en:
       update_success: "update meeting success!"
       update_fail: "update meeting fail!"
       not_found: "meeting not found!"
+      over_lap: "Has been occurred"
+      time_unacceptable: "Unacceptable"
     manager:
       update_success: "update manager success!"
       update_fail: "update manager fail!"
+    birthday_date_format: "%d/%m/%Y"

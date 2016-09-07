@@ -10,9 +10,9 @@ class Api::V1::SessionsController < Devise::SessionsController
       manager.generate_authentication_token!
       manager.save
       render json: {user: ManagerSerializer.new(manager).as_json,
-        success_message: t("api.login_success")}, status: 200
+        messages: t("api.login_success")}, status: 200
     else
-      render json: {error_message: t("api.login_fail")}, status: 422
+      render json: {errors: t("api.login_fail")}, status: 422
     end
   end
 
@@ -21,9 +21,9 @@ class Api::V1::SessionsController < Devise::SessionsController
       current_user.generate_authentication_token!
       current_user.save
       sign_out current_user
-      render json: {success_message: t("api.logout_success")}
+      render json: {messages: t("api.logout_success")}
     else
-      render json: {error_message: t("api.logout_fail")}
+      render json: {errors: t("api.logout_fail")}
     end
   end
 end
