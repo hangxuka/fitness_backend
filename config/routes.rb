@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         sign_out: "logout", password: "secret", confirmation: "verification",
         registration: "register", sign_up: "cmon_let_me_in"}
       resources :users
+      resources :trainer_count_shifts, only: :show
       resources :items
       resources :orders
       resources :meetings
